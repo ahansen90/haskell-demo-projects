@@ -1,0 +1,42 @@
+name:                producer-consumer-CSCE451
+version:             1.0.0.0
+github:              "asturtz2/haskell-demo-projects"
+license:             BSD3
+author:              "Alex Sturtz"
+maintainer:          "alexstur@gmail.com"
+copyright:           "2021 Alex Sturtz"
+
+extra-source-files:
+- README.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description: Please see the README on GitHub at <https://github.com/asturtz2/haskell-demo-projects#producer-consumer-CSCE451/readme>
+
+dependencies:
+  - base >= 4.7 && < 5
+  - optparse-applicative
+  - unix
+  - random
+  - MonadRandom
+  - text
+  - vector
+
+library:
+  source-dirs: src
+
+executables:
+  producer-consumer:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - producer-consumer-CSCE451
