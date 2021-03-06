@@ -1,0 +1,22 @@
+version: '3'
+services:
+    rest-api:
+        build: .
+        image: rest-api
+        command: rest-api-exe
+        expose:
+            - "1234"
+        depends_on:
+          - db
+        volumes:
+          - '.:/app/user'
+    nginx:
+        build: ./nginx
+        image: nginx
+        ports:
+            - "8080:80"
+        depends_on:
+            - rest-api
+    db:
+        build: ./postgres
+        image: postgres
