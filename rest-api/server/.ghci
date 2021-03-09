@@ -1,0 +1,11 @@
+:set -XDataKinds
+:set -XTemplateHaskell
+:set -XTypeOperators
+:set -XDeriveGeneric
+:set -XOverloadedLabels
+:set -XFlexibleContexts
+:set -XOverloadedStrings
+:set -XTypeApplications
+:set -XGADTs
+:set -XDerivingStrategies
+:set -XDeriveAnyClass

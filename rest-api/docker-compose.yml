@@ -1,0 +1,24 @@
+version: '3'
+services:
+    server:
+        build:
+          context: ./server
+          dockerfile: ./Dockerfile
+        image: server
+        command: server-exe
+        expose:
+          - "1234"
+        depends_on:
+          - db
+    nginx:
+        build: ./nginx
+        image: nginx
+        ports:
+          - "8080:80"
+        depends_on:
+          - server
+    db:
+        build: ./postgres
+        image: postgres
+        ports:
+          - "5432:5432"
