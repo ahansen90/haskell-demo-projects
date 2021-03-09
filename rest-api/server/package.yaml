@@ -1,10 +1,10 @@
-name:                rest-api
+name:                server
 version:             0.1.0.0
-github:              "githubuser/rest-api"
+github:              "asturtz2/haskell-demo-projects"
 license:             BSD3
-author:              "Author name here"
-maintainer:          "example@example.com"
-copyright:           "2021 Author name here"
+author:              "Alex Sturtz"
+maintainer:          "alexstur@gmail.com"
+copyright:           "2021 Alex Sturtz"
 
 extra-source-files:
 - README.md
@@ -23,13 +23,36 @@ dependencies:
 - aeson
 - servant-server
 - wai
+- wai-logger
 - warp
+- squeal-postgresql
+- generics-sop
+- text
+- mtl
+- transformers
 
 library:
   source-dirs: src
+  default-extensions:
+    - DataKinds
+    - TemplateHaskell
+    - TypeOperators
+    - DeriveGeneric
+    - OverloadedLabels
+    - FlexibleContexts
+    - OverloadedStrings
+    - TypeApplications
+    - GADTs
+    - DerivingStrategies
+    - DerivingVia
+    - DeriveAnyClass
+    - LambdaCase
+    - TypeFamilies
+    - RecordWildCards
+    - GeneralizedNewtypeDeriving
 
 executables:
-  rest-api-exe:
+  server-exe:
     main:                Main.hs
     source-dirs:         app
     ghc-options:
@@ -38,10 +61,10 @@ executables:
     - -with-rtsopts=-N
     dependencies:
     - base
-    - rest-api
+    - server
 
 tests:
-  rest-api-test:
+  server-test:
     main:                Spec.hs
     source-dirs:         test
     ghc-options:
@@ -50,4 +73,4 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - base
-    - rest-api
+    - server

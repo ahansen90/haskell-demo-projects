@@ -1,22 +1,24 @@
 version: '3'
 services:
-    rest-api:
-        build: .
-        image: rest-api
-        command: rest-api-exe
+    server:
+        build:
+          context: ./server
+          dockerfile: ./Dockerfile
+        image: server
+        command: server-exe
         expose:
-            - "1234"
+          - "1234"
         depends_on:
           - db
-        volumes:
-          - '.:/app/user'
     nginx:
         build: ./nginx
         image: nginx
         ports:
-            - "8080:80"
+          - "8080:80"
         depends_on:
-            - rest-api
+          - server
     db:
         build: ./postgres
         image: postgres
+        ports:
+          - "5432:5432"

@@ -1,7 +1,7 @@
 FROM haskell:8.10.2
 
 RUN apt-get update
-RUN apt-get install -y procps
+RUN apt-get install -y procps libpq-dev
 
 RUN mkdir -p /app/user
 WORKDIR /app/user
